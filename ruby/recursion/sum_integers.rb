@@ -47,3 +47,7 @@ Benchmark.bm(7) do |x|
   x.report {sum_like_a_boss(100)}
 
 end
+
+#  "You even look like Carl Friedrich Gauss. 
+#  If phrenology were a true science, you'd be Carl Friedrich 
+#  Gauss' intellectual equivalent!"
