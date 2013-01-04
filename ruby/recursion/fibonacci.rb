@@ -4,15 +4,9 @@
 
 def fibonacci(n)
 
-  # Base cases
-  if n == 0 
-    0
-  elsif n == 1
-    1
-  # Recursive case
-  else
-    return fibonacci(n-1) + fibonacci(n-2)
-  end
+  return 0 if n == 0 
+  return 1 if n == 1
+  fibonacci(n-1) + fibonacci(n-2)
 
 end
 
