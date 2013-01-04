@@ -7,31 +7,24 @@ require 'benchmark'
 
 def sum_recursively(num)
 
-  if num == 0
-    return num
-  end
-
-  return sum_recursively(num-1) + num
-
+  return num if num == 0
+  sum_recursively(num-1) + num
 end
 
 def sum_iteratively(num)
 
   sum = 0
-
   for i in 1..num
     sum = sum + i
   end 
 
   sum
-
 end
 
 def sum_like_a_boss(num)
 
   # Gauss sum formula
-  return ((1+num)/2)*num
-
+  ((1+num)/2)*num
 end
 
 # Show method benchmark performance times
