@@ -1,5 +1,4 @@
 class Node
-
   attr_accessor :value, :left, :right
 
   def initialize(value,left=nil,right=nil)
@@ -24,7 +23,6 @@ class Node
 end
 
 class Tree
-
   attr_accessor :root
 
   def initialize(root)
@@ -86,5 +84,4 @@ class Tree
       @@orderedNodes << root 
     end
   end
-
 end

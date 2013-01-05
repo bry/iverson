@@ -4,7 +4,6 @@
 require 'benchmark'
 
 class Person
-
   ASTRONAUT_DENOMINATOR = 13200000
 
   # Odds of being an astronaut: 13,200,000 to 1 
@@ -20,6 +19,7 @@ class Person
     end
   end
 end
+
 
 buzz_aldrin = Person.new
 puts "Is Buzz Aldrin an astronaut? " 

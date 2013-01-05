@@ -8,7 +8,6 @@ line2 = "123 234 324323 34325 2343 199"
 @@count = 0
 
 def inputCallback(line,count)
-
   columns = line.split(" ")
 
   if columns[5].to_i > 200
@@ -20,8 +19,8 @@ def inputCallback(line,count)
   if @@count == 5
     puts "ERROR!"
   end
-
 end
+
 
 inputCallback(line,$count)
 inputCallback(line,$count)

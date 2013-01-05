@@ -6,13 +6,11 @@ require 'benchmark'
 # of all integers from 1 to the integer given 
 
 def sum_recursively(num)
-
   return num if num == 0
   sum_recursively(num-1) + num
 end
 
 def sum_iteratively(num)
-
   sum = 0
   for i in 1..num
     sum = sum + i
@@ -22,14 +20,12 @@ def sum_iteratively(num)
 end
 
 def sum_like_a_boss(num)
-
   # Gauss sum formula
   ((1+num)/2)*num
 end
 
 # Show method benchmark performance times
 Benchmark.bm(7) do |x| 
-
   puts "Sum recursively" 
   x.report {sum_recursively(100)}
 
@@ -38,7 +34,6 @@ Benchmark.bm(7) do |x|
 
   puts "Sum using Gauss formula" 
   x.report {sum_like_a_boss(100)}
-
 end
 
 #  "You even look like Carl Friedrich Gauss. 

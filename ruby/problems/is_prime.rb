@@ -7,7 +7,6 @@ def prime?(number)
 end
 
 def prime(number,square_root)
-
   if square_root < 2
     return true
   elsif number % square_root == 0
@@ -16,6 +15,7 @@ def prime(number,square_root)
   
   prime(number, square_root - 1)
 end
+
 
 puts "Is 11 prime? " + prime?(11).to_s
 puts "Is 12 prime? " + prime?(12).to_s

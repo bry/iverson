@@ -3,7 +3,6 @@
 # Ruby blocks
 
 def kanye_raps &block
-
   for i in 0..1 
     if block
       yield
@@ -11,7 +10,6 @@ def kanye_raps &block
   end    
 
   puts "Ain't it Jay?"
-
 end
 
 def jay_z_raps &block

@@ -4,7 +4,6 @@
 # Solution: Use a minstack and track min
 
 class MinStack
-
   def initialize
     @currentMin = 10000000 
     @stack = []
@@ -33,8 +32,8 @@ class MinStack
     @minStack.push(min)
     min
   end
-
 end
+
 
 ms = MinStack.new
 ms.push(3)
