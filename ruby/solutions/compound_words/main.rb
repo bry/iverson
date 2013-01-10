@@ -54,8 +54,8 @@ trie = Trie.new(words)
 searcher = CompoundWordSearcher.new
 
 # Benchmark and perform search 
-Benchmark.bm do |x|
-  x.report {searcher.search(words, trie)}
+Benchmark.bm(12) do |x|
+  x.report("Performance") {searcher.search(words, trie)}
 end
 
 
