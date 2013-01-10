@@ -54,14 +54,14 @@ trie = Trie.new(words)
 searcher = CompoundWordSearcher.new
 
 # Benchmark and perform search 
-Benchmark.bm(7) do |x|
+Benchmark.bm do |x|
   x.report {searcher.search(words, trie)}
 end
 
 
 # Sample output
 =begin
-➜  compound_words git:(master) ✗ ./word_search.rb words_for_problem.txt
+➜  compound_words git:(master) ✗ ./main.rb words_for_problem.txt
               user     system      total        real
         
 The number of compound words in list: 97107
