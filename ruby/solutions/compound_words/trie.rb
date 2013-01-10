@@ -14,7 +14,6 @@ class Node
   end
 end
 
-
 class Trie
   attr_accessor :root 
 
@@ -52,4 +51,3 @@ class Trie
     root_node
   end
 end
-
