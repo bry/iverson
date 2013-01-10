@@ -13,6 +13,7 @@ def compound_word?(word,trie,depth=0)
   node_ptr = trie.root
   null_node = Node.new("nil")
 
+  # Recusive base case
   if word == "" and depth > 2 
     return true
   else
@@ -168,8 +169,9 @@ File.open(words_filename).each do |word|
   words << word
 end
 
-# Preprocess Dictionary
-# Build dictionary word prefix trie with word array for quick word lookup
+# Preprocess dictionary
+# Build dictionary word prefix trie with word array for 
+# O(l), where l is length of word, lookup time
 trie = Trie.new(words)
 
 # Benchmark and perform search 
@@ -178,6 +180,7 @@ Benchmark.bm(7) do |x|
 end
 
 
+# Sample output
 =begin
 ➜  compound_words git:(master) ✗ ./word_search.rb words_for_problem.txt
               user     system      total        real
