@@ -1,0 +1,42 @@
+Usage
+  
+  ./word_search.rb [dictionary_filename]
+
+Sample Output
+➜  compound_words git:(master) ✗ ./word_search.rb words_for_problem.txt
+              user     system      total        real
+        
+The number of compound words in list: 97107
+
+Largest compound words (letter length):
+ 1. ethylenediaminetetraacetates (28)
+ 2. electroencephalographically (27)
+
+ 19.650000   0.020000  19.670000 ( 19.666621)
+
+Design
+  Trie (prefix tree) is built from the dictionary given to enable fast
+search times. The compound word search uses the trie to determine valid
+words from the dictionary.
+  The advantage of using a trie is for very fast dictionary word
+lookup times. The disadvantage of creating a trie for search is slow 
+loading dictionary times from disk to memory and trie representation 
+memory usage.
+
+Implementation
+
+  Trie representation
+  To represent and quickly search all the words in a given dictionary, 
+a trie (prefix tree) is built. The trie.rb file contains two classes 
+to represent the trie, a Node class and a Trie class. The Node class 
+contains it's letter and it's children nodes. The Node's == operator 
+is overloaded to make node to node equality simple, based on the 
+letter in the node. The Trie class contains a root node used to access 
+the trie and a build_trie method used to construct the tree from all 
+dictionary words. When building the trie, a null node is used to 
+denote end of whole words.
+
+  Search
+  Each word is then searched letter-by-letter for compoundness using 
+the trie through a combination of null node markers and recursive
+calls on word substrings, removing dictionary word prefixes. 

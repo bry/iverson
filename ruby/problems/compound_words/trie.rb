@@ -9,13 +9,6 @@ class Node
     @children = child_nodes
   end
 
-  def add_child(child_node)
-    # Check for children node dups
-    unless @children.include?(child_node)
-      @children << child_node
-    end
-  end
-
   def ==(otherNode)
     @letter == otherNode.letter
   end
@@ -56,7 +49,7 @@ class Trie
 
     end unless words == nil
 
-    return root_node
+    root_node
   end
 end
 
