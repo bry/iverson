@@ -34,7 +34,7 @@ require './compound_word_searcher'
 if ARGV[0]
   words_filename = ARGV[0]
 else
-  puts "Usage: ./word_search.rb [filename]"
+  puts "Usage: ./main.rb [filename]"
   exit 
 end
 
