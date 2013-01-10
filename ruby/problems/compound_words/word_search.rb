@@ -52,11 +52,14 @@ end
 
 # Search for compounded words
 # inputs: word list, trie
-# outputs: top two lengthiest compound words, runtime benchmarks
+# outputs: top two lengthiest compound words, compound word count,
+#   and runtime benchmarks
 def search(words,trie)
   
-  compound_word_count = 0
   compound_words = []
+  largest_word = ""
+  second_largest_word = ""
+  word_length = 0
 
   words.each do |word|
     if compound_word?(word,trie)
@@ -70,10 +73,54 @@ def search(words,trie)
   puts
 
   # Output first and second largest word found
-  largest_word = compound_words.max_by {|w| w.length }
-  compound_words.delete(largest_word)
-  second_largest_word = compound_words.max_by {|w| w.length } 
+  compound_words.each do |compound_word|
+    if compound_word.length > second_largest_word.length
+      if compound_word.length > largest_word.length
+        second_largest_word = largest_word
+        largest_word = compound_word
+      else
+        second_largest_word = compound_word
+      end 
+    end 
+  end  
 
+  puts "Largest compound words (letter length):"
+  puts " 1. #{largest_word} (#{largest_word.length})" 
+  puts " 2. #{second_largest_word} (#{second_largest_word.length})" 
+  puts
+end
+
+
+# Search for top 2 compounded words only
+# inputs: word list, trie
+# outputs: top two lengthiest compound words and runtime benchmarks
+def search_top_2(words,trie)
+  
+  compound_words = []
+  largest_word = ""
+  second_largest_word = ""
+  word_length = 0
+
+  words.each do |word|
+    if word.length >= word_length
+      if compound_word?(word,trie)
+        compound_words << word
+
+        if word.length > second_largest_word.length
+          if word.length > largest_word.length
+            second_largest_word = largest_word          
+            largest_word = word
+            word_length = second_largest_word.length
+          else 
+            second_largest_word = word 
+            word_length = second_largest_word.length
+          end 
+        end
+      end
+    end
+  end
+
+  # Output first and second largest word found
   puts "Largest compound words (letter length):"
   puts " 1. #{largest_word} (#{largest_word.length})" 
   puts " 2. #{second_largest_word} (#{second_largest_word.length})" 
