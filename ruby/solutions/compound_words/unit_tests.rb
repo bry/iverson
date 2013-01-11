@@ -22,6 +22,32 @@ class TestCompoundWordSearcher < Test::Unit::TestCase
     @searcher = CompoundWordSearcher.new
   end
 
+  def test_basic_non_compound_words
+    word = "aa"
+    assert_equal(false, @searcher.compound_word?(word, @trie))
+    word = "aal"
+    assert_equal(false, @searcher.compound_word?(word, @trie))
+    word = "lab"
+    assert_equal(false, @searcher.compound_word?(word, @trie))
+    word = "ax"
+    assert_equal(false, @searcher.compound_word?(word, @trie))
+    word = "jab"
+    assert_equal(false, @searcher.compound_word?(word, @trie))
+    word = "xanthan"
+    assert_equal(false, @searcher.compound_word?(word, @trie))
+  end
+
+  def test_basic_compound_words
+    word = "aahaa"
+    assert_equal(true, @searcher.compound_word?(word, @trie))
+    word = "abacaabaab"
+    assert_equal(true, @searcher.compound_word?(word, @trie))
+    word = "hippopotamusescatxdogcatsratra"
+    assert_equal(false, @searcher.compound_word?(word, @trie))
+    word = "abalonezymologieszygomorphicabbreviations"
+    assert_equal(true, @searcher.compound_word?(word, @trie))
+  end
+
   def test_basic_compound_words
     word = "aahaa"
     assert_equal(true, @searcher.compound_word?(word, @trie))
@@ -46,7 +72,6 @@ class TestCompoundWordSearcher < Test::Unit::TestCase
       end 
 
       # These constructed compound words should all test to true
-      puts "Testing random compound word: #{word}"
       assert_equal(true, @searcher.compound_word?(word, @trie), "Fail word: #{word}")
       word = ""
     end
