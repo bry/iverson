@@ -46,17 +46,6 @@ class TestCompoundWordSearcher < Test::Unit::TestCase
     assert_equal(false, @searcher.compound_word?(word, @trie))
     word = "abalonezymologieszygomorphicabbreviations"
     assert_equal(true, @searcher.compound_word?(word, @trie))
-  end
-
-  def test_basic_compound_words
-    word = "aahaa"
-    assert_equal(true, @searcher.compound_word?(word, @trie))
-    word = "abacaabaab"
-    assert_equal(true, @searcher.compound_word?(word, @trie))
-    word = "hippopotamusescatxdogcatsratra"
-    assert_equal(false, @searcher.compound_word?(word, @trie))
-    word = "abalonezymologieszygomorphicabbreviations"
-    assert_equal(true, @searcher.compound_word?(word, @trie))
     word = "strawberryyanyan"
     assert_equal(false, @searcher.compound_word?(word, @trie))
   end
