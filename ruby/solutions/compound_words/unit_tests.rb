@@ -5,7 +5,7 @@ require './compound_word_searcher'
 require "test/unit"
 
 class TestCompoundWordSearcher < Test::Unit::TestCase
-  DICT_FILE_NAME = "test_words.txt" 
+  DICT_FILE_NAME = "words_for_problem.txt" 
 
   def setup 
     # Load words from file into memory
@@ -24,16 +24,55 @@ class TestCompoundWordSearcher < Test::Unit::TestCase
     @searcher = CompoundWordSearcher.new
   end
 
-  def test_compound_words
-    word = "ratdog"
+  def test_basic_compound_words
+    word = "aahaa"
     assert_equal(true, @searcher.compound_word?(word, @trie))
-    word = "ratdogratdogdogdogratratdog"
+    word = "abacaabaab"
     assert_equal(true, @searcher.compound_word?(word, @trie))
     word = "hippopotamusescatxdogcatsratra"
     assert_equal(false, @searcher.compound_word?(word, @trie))
-    word = "ratcatdogcatrathippopotamusesdogcatsdogdogcatxdogcatsratcatsdogcatscatscat"
+    word = "abalonezymologieszygomorphicabbreviations"
     assert_equal(true, @searcher.compound_word?(word, @trie))
     word = "strawberryyanyan"
     assert_equal(false, @searcher.compound_word?(word, @trie))
+  end
+=begin
+  (0..10).each do |i|
+    define_method("test_random_compound_word_#{i}") do
+      # Construct a valid compound word with random words from 
+      # words list
+      compound_word_size = Random.rand(2..3)
+      j = 0 
+      while j < compound_word_size
+        word = "#{word}#{@words[Random.rand(0..@words.length-1)]}"
+        j = j + 1
+      end
+    
+      # These constructed compound words should all test to true
+      puts "Testing random compound word: #{word}"
+      assert_equal(true, @searcher.compound_word?(word, @trie), "Fail word: #{word}")
+    end
+  end
+=end
+  def test_generate_random_compound_words 
+
+    max_iterations = 100
+    i = 0
+    while(i < max_iterations)
+      # Construct a valid compound word with random words from 
+      # words list
+      compound_word_size = Random.rand(2..10)
+      j = 0
+      while j < compound_word_size
+        word = "#{word}#{@words[Random.rand(0..@words.length-1)]}"
+        j = j + 1
+      end 
+
+      # These constructed compound words should all test to true
+      puts "Testing random compound word: #{word}"
+      assert_equal(true, @searcher.compound_word?(word, @trie), "Fail word: #{word}")
+      i = i + 1
+      word = ""
+    end
   end
 end
