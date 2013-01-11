@@ -56,7 +56,7 @@ class TestCompoundWordSearcher < Test::Unit::TestCase
 =end
   def test_generate_random_compound_words 
 
-    max_iterations = 100
+    max_iterations = 10000
     i = 0
     while(i < max_iterations)
       # Construct a valid compound word with random words from 
