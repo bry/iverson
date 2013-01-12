@@ -1,6 +1,7 @@
 #!/usr/bin/ruby
 
-# Fibonacci sequence: f(n) = f(n-1) + f(n-2)
+# Fibonacci sequence: f(n) = f(n-1) + f(n-2) 
+#                     where f(0)=0 and f(1)=1
 def fibonacci(n)
   return 0 if n == 0 
   return 1 if n == 1
