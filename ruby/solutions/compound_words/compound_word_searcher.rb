@@ -1,9 +1,5 @@
 class CompoundWordSearcher
 
-  ######################################################
-  # Search functions
-  ######################################################
-
   # Check for compounded words with word trie
   def compound_word?(word,trie,depth=0)
     depth = depth + 1
