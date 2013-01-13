@@ -16,8 +16,10 @@ Largest compound words (letter length):
 
 Design
   Trie (prefix tree) is built from the dictionary given to enable fast
-search times. The compound word search uses the trie to determine valid
-words from the dictionary.
+search times. Each word in the dictionary is inserted into the trie 
+with the last character's child node containing a null marker denoting
+the end of the word representation in the tree. The compound word 
+search uses the trie to determine valid words from the dictionary.
   The advantage of using a trie is for very fast dictionary word
 lookup times. The disadvantage of creating a trie for search is slow 
 loading dictionary times from disk to memory and trie representation 
@@ -40,3 +42,13 @@ denote end of whole words.
   Each word is then searched letter-by-letter for compoundness using 
 the trie through a combination of null node markers and recursive
 calls on word substrings, removing dictionary word prefixes. 
+
+Test
+
+  Unit tests
+  Trie.compound_word? method tests were created for basic 
+non-compound words, basic compound word boundary cases. A random 
+compound words test is also created. This test extracts random
+words from the given dictionary and combines them to form a 
+Trie.compound_word? test word. All assertions should return 
+true in this test. 
