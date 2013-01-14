@@ -34,12 +34,16 @@ class Trie
           root_node.children << char_node 
           prev_char_node = char_node
         elsif index == 0 and root_node.children.include?(char_node)
-          prev_char_node = root_node.children.fetch(root_node.children.index(char_node)) 
+          prev_char_node = 
+            root_node.children.fetch(root_node.children.index(char_node)) 
         elsif !prev_char_node.children.include?(char_node) 
           prev_char_node.children << char_node 
           prev_char_node = char_node
         elsif prev_char_node.children.include?(char_node) 
-          prev_char_node = prev_char_node.children.fetch(prev_char_node.children.index(char_node)) 
+          prev_char_node = 
+            prev_char_node.children.fetch(
+              prev_char_node.children.index(char_node)
+            ) 
         end
       end
 

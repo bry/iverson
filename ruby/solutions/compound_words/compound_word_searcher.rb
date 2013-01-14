@@ -1,5 +1,4 @@
 class CompoundWordSearcher
-
   # Check for compounded words with word trie
   def compound_word?(word,trie,depth=0)
     depth = depth + 1
@@ -15,10 +14,18 @@ class CompoundWordSearcher
         char_node = Node.new(letter)
 
         # Shift trie pointer, check termination marker 
-        if node_ptr.children.include?(char_node) and !node_ptr.children.include?(null_node)
-          node_ptr = node_ptr.children.fetch(node_ptr.children.index(char_node))
+        if( 
+          node_ptr.children.include?(char_node) \
+          and \
+          !node_ptr.children.include?(null_node)
+        )
+          node_ptr = node_ptr.children.fetch(
+                       node_ptr.children.index(char_node)
+                     )
         elsif node_ptr.children.include?(char_node) 
-          node_ptr = node_ptr.children.fetch(node_ptr.children.index(char_node))
+          node_ptr = node_ptr.children.fetch(
+                       node_ptr.children.index(char_node)
+                     )
         else
           return false
         end
@@ -62,7 +69,7 @@ class CompoundWordSearcher
 
     # Output number of compound words in dictionary
     puts
-    puts "The number of compound words in list: " + compound_words.count.to_s
+    puts "Number of compound words in list: #{compound_words.count.to_s}"
     puts
 
     # Output first and second largest word found
@@ -82,7 +89,6 @@ class CompoundWordSearcher
     puts " 2. #{second_largest_word} (#{second_largest_word.length})" 
     puts
   end
-
 
   # Search for top 2 compounded words only
   # inputs: word list, trie
