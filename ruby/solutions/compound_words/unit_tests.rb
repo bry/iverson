@@ -62,11 +62,7 @@ class TestCompoundWordSearcher < Test::Unit::TestCase
       end 
 
       # These constructed compound words should all test to true
-      assert_equal(
-        true, 
-        @searcher.compound_word?(word, @trie), 
-        "Fail word: #{word}"
-      )
+      assert_equal(true, @searcher.compound_word?(word, @trie), "Fail word: #{word}")
 
       word = ""
     end

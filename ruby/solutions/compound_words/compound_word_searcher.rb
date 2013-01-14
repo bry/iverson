@@ -14,18 +14,12 @@ class CompoundWordSearcher
         char_node = Node.new(letter)
 
         # Shift trie pointer, check termination marker 
-        if( 
-          node_ptr.children.include?(char_node) \
-          and \
-          !node_ptr.children.include?(null_node)
-        )
-          node_ptr = node_ptr.children.fetch(
-                       node_ptr.children.index(char_node)
-                     )
+        if node_ptr.children.include?(char_node) and !node_ptr.children.include?(null_node)
+          trie_node_index = node_ptr.children.index(char_node)
+          node_ptr = node_ptr.children.fetch(trie_node_index)
         elsif node_ptr.children.include?(char_node) 
-          node_ptr = node_ptr.children.fetch(
-                       node_ptr.children.index(char_node)
-                     )
+          trie_node_index = node_ptr.children.index(char_node)
+          node_ptr = node_ptr.children.fetch(trie_node_index)
         else
           return false
         end
