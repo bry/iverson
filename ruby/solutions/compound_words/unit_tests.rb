@@ -57,11 +57,17 @@ class TestCompoundWordSearcher < Test::Unit::TestCase
       # Construct a valid compound word from words init in setup 
       compound_word_size = Random.rand(2..10)
       for j in 0..compound_word_size
-        word = "#{word}#{@words[Random.rand(0..@words.length-1)]}"
+        random_dictionary_word = @words[Random.rand(0..@words.length-1)]
+        word = "#{word}#{random_dictionary_word}"
       end 
 
       # These constructed compound words should all test to true
-      assert_equal(true, @searcher.compound_word?(word, @trie), "Fail word: #{word}")
+      assert_equal(
+        true, 
+        @searcher.compound_word?(word, @trie), 
+        "Fail word: #{word}"
+      )
+
       word = ""
     end
   end
