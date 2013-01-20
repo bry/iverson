@@ -50,5 +50,6 @@ def capture_params(**params)
 end
 
 p capture_params(foo:"bar", hello:"world")
+p capture_params(hello:"world", foo:"bar")
 
 
