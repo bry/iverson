@@ -52,4 +52,29 @@ end
 p capture_params(foo:"bar", hello:"world")
 p capture_params(hello:"world", foo:"bar")
 
+# Enumerator#lazy
+require "timeout"
 
+begin
+  timeout(1) {[1,2,3].cycle.map {|x| x * 10}}
+rescue => e
+  p e
+end
+
+p [1,2,3].lazy.cycle.map {|x| x  * 10}.take(5).to_a
+
+class Foo
+  include Enumerable
+  def each
+    sleep 1
+    yield 1
+    sleep 1
+    yield 2
+    sleep 1
+    yield 3
+  end
+end
+
+Foo.new.lazy.map {|x| x * 10}.each {|x| p x}
+f = Foo.new.lazy
+p f.methods
