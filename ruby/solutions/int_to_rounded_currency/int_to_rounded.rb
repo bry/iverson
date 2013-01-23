@@ -1,5 +1,4 @@
 class Fixnum
-
   def to_rounded_s
     integer = self
     negative_flag = false
@@ -46,6 +45,5 @@ class Fixnum
     else
       return "$#{value}#{letter}"
     end
-
   end
 end 

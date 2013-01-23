@@ -4,7 +4,7 @@ require './int_to_rounded'
 require "test/unit"
 
 class TestIntToRounded < Test::Unit::TestCase
-  def test_int_to_rounded
+  def test_to_rounded_s
     assert_equal("$0", 0.to_rounded_s )
     assert_equal("$140", 140.to_rounded_s )
     assert_equal("$1.2K", 1240.to_rounded_s )
