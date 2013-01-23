@@ -53,6 +53,8 @@ class Fixnum
     elsif integer < 1000000000000000
       value = integer / 1000000000000
       letter = "T"
+    else
+      value = "Number out of range"
     end
 
     if value == 0.0
