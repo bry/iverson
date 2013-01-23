@@ -21,6 +21,7 @@ class TestIntToRounded < Test::Unit::TestCase
     assert_equal("$14B", 14121234322.to_rounded_s )
     assert_equal("$321B", 321121234322.to_rounded_s )
     assert_equal("$9.2T", 9223000121002.to_rounded_s )
+    assert_equal("$34T", 34223000121002.to_rounded_s )
     assert_equal("$Number out of range", 111119223000121002.to_rounded_s )
   end
 end
