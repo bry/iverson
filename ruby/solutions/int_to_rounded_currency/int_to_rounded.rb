@@ -37,6 +37,19 @@ class Fixnum
       value = integer / 1000000000.0
       value = value.round(1)
       letter = "B"
+    elsif integer < 100000000000
+      value = integer / 1000000000
+      letter = "B"
+    elsif integer < 1000000000000
+      value = integer / 1000000000
+      letter = "B"
+    elsif integer < 10000000000000
+      value = integer / 1000000000000.0
+      value = value.round(1)
+      letter = "T"
+    elsif integer < 100000000000000
+      value = integer / 1000000000000
+      letter = "T"
     elsif integer < 1000000000000000
       value = integer / 1000000000000
       letter = "T"
