@@ -27,6 +27,12 @@ class Fixnum
       value = integer / 1000000.0
       value = value.round(1)
       letter = "M"
+    elsif integer < 100000000
+      value = integer / 1000000
+      letter = "M"
+    elsif integer < 1000000000
+      value = integer / 1000000
+      letter = "M"
     elsif integer < 10000000000
       value = integer / 1000000000.0
       value = value.round(1)

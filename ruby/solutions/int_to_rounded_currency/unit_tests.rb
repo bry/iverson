@@ -13,5 +13,7 @@ class TestIntToRounded < Test::Unit::TestCase
     assert_equal("($1.2M)", -1240123.to_rounded_s )
     assert_equal("$5.9B", 5853010238.to_rounded_s )
     assert_equal("$124T", 124123000121002.to_rounded_s )
+    assert_equal("$11M", 11234322.to_rounded_s )
+    assert_equal("$121M", 121234322.to_rounded_s )
   end
 end
