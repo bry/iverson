@@ -61,10 +61,13 @@ class Fixnum
       value = 0 
     end
 
+    rounded_s = ""
     if negative_flag 
-      return "($#{value}#{letter})"
+      rounded_s = "($#{value}#{letter})"
     else
-      return "$#{value}#{letter}"
+      rounded_s = "$#{value}#{letter}"
     end
+
+    rounded_s
   end
 end 
