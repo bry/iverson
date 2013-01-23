@@ -12,7 +12,9 @@ def std_dev(numbers)
     sum = sum + x    
   end
 
-  mean = sum / count
+  puts "Count: #{count}"
+  mean = sum.to_f / count.to_f
+  puts "Mean: #{mean}"
 
   sum_squares = 0
   numbers.each do |x|
@@ -22,6 +24,7 @@ def std_dev(numbers)
   mean_sum_squares = sum_squares / count
 
   std_dev = Math.sqrt(mean_sum_squares)
+  puts "Standard Deviation: #{std_dev}"
 
   return std_dev
 end
