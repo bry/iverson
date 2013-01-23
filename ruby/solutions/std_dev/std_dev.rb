@@ -1,5 +1,5 @@
 # Using std dev formula from:
-# http://www.mathsisfun.com/data/standard-deviation-formulas.html
+#http://mathworld.wolfram.com/images/equations/StandardDeviation/NumberedEquation2.gif
 def std_dev(numbers)
 
   return 0.0 if numbers.count == 0
