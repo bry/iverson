@@ -40,4 +40,13 @@ class TestIntToRounded < Test::Unit::TestCase
       assert_equal("$100T", x.to_rounded_s )
     end
   end
+
+  def test_result_format_random_number_range_to_rounded_s
+    max_iterations = 250000
+    puts "Testing proper result format - #{max_iterations} random selections from full range"
+    for i in 0..max_iterations
+      x = Random.rand(-999999999999999..999999999999999)
+      assert_match(/\$[0-9]{0,3}[KMBT]{0,1}/, x.to_rounded_s) 
+    end
+  end
 end
