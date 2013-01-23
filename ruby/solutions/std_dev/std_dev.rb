@@ -1,6 +1,9 @@
 # Using std dev formula from:
 # http://www.mathsisfun.com/data/standard-deviation-formulas.html
 def std_dev(numbers)
+
+  return 0.0 if numbers.count == 0
+
   std_dev = 0
   sum = 0
   mean = 0
