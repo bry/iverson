@@ -12,6 +12,6 @@ class TestStandardDeviation < Test::Unit::TestCase
   def test_standard_deviation_calc
     test_numbers = [1,2,3,4]
     std_dev = std_dev(test_numbers)
-    assert_equal(1.0, std_dev(test_numbers), "${std_dev}")
+    assert_equal(1.11803, std_dev(test_numbers).round(5), "${std_dev}")
   end
 end
