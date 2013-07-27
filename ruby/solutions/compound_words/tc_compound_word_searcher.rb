@@ -1,5 +1,3 @@
-#!/Users/bcabalo/.rvm/rubies/ruby-1.9.3-p194/bin/ruby
-
 require './trie'
 require './compound_word_searcher'
 require "test/unit"

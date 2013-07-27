@@ -1,5 +1,3 @@
-#!/Users/bcabalo/.rvm/rubies/ruby-1.9.3-p194/bin/ruby
-
 require 'benchmark'
 require './trie'
 require './compound_word_searcher'
@@ -34,7 +32,7 @@ require './compound_word_searcher'
 if ARGV[0]
   words_filename = ARGV[0]
 else
-  puts "Usage: ./main.rb [filename]"
+  puts "Usage: ruby main.rb [filename]"
   exit 
 end
 
