@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-require 'tree'
+require './tree'
 
 # Construct node tree
 root = Node.new(100,nil,nil)
