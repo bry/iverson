@@ -1,27 +1,3 @@
-class Node
-  attr_accessor :value, :left, :right
-
-  def initialize(value,left=nil,right=nil)
-    @value,@left,@right = value,left,right 
-  end
-
-  def hasleft?
-    if @left != nil
-      true
-    else
-      false
-    end
-  end
-
-  def hasright?
-    if @right != nil
-      true
-    else
-      false
-    end
-  end
-end
-
 class Tree
   attr_accessor :root
 
@@ -29,47 +5,41 @@ class Tree
     @root = root
   end
 
-  # Depth first traversal
   def traverseInOrder
-     # Clear array
-     @@orderedNodes = [] 
+     @@orderedNodes = []
      traverseInOrderRecurse(root)
      @@orderedNodes
   end
 
   def traversePreOrder
-     # Clear array
-     @@orderedNodes = [] 
+     @@orderedNodes = []
      traversePreOrderRecurse(root)
      @@orderedNodes
   end
 
   def traversePostOrder
-     # Clear array
-     @@orderedNodes = [] 
+     @@orderedNodes = []
      traversePostOrderRecurse(root)
      @@orderedNodes
   end
 
-  # Recursion traversal functions 
   private
-  
+
   def traverseInOrderRecurse(root)
     if root == nil
       return
     else
       traverseInOrderRecurse(root.left)
-      # Add to static array
-      @@orderedNodes << root 
+      @@orderedNodes << root
       traverseInOrderRecurse(root.right)
     end
   end
-  
+
   def traversePreOrderRecurse(root)
     if root == nil
       return
     else
-      @@orderedNodes << root 
+      @@orderedNodes << root
       traversePreOrderRecurse(root.left)
       traversePreOrderRecurse(root.right)
     end
@@ -81,7 +51,7 @@ class Tree
     else
       traversePostOrderRecurse(root.left)
       traversePostOrderRecurse(root.right)
-      @@orderedNodes << root 
+      @@orderedNodes << root
     end
   end
 end
